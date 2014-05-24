@@ -53,7 +53,7 @@ cacheSolve <- function(x, ...) {
         inverse
 }
 
-
+#A help function to judge if 2 matrices are equal.
 matequal <- function(x, y)
 {
         is.matrix(x) && is.matrix(y) && dim(x) == dim(y) && all(x == y)
