@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
         getInverse <- function() cachedInverse
         
         changed <- function(){
-                if(x == cachedMatrix)  FALSE 
+                if(matequal(x, cachedMatrix))  FALSE 
                 else TRUE
         }
         
@@ -51,4 +51,10 @@ cacheSolve <- function(x, ...) {
         }
         
         inverse
+}
+
+
+matequal <- function(x, y)
+{
+        is.matrix(x) && is.matrix(y) && dim(x) == dim(y) && all(x == y)
 }
