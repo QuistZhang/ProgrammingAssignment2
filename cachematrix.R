@@ -14,6 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
         
         get <- function() x
         
+        #Save a copy of current matrix object and calculate its inverse.
         caluInverse <- function(){
                 cachedMatrix <<- x
                 cachedInverse <<- solve(x)
@@ -21,6 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
         
         getInverse <- function() cachedInverse
         
+        #This function is used to evaluate whether the matrix object has been changed.
         changed <- function(){
                 if(matequal(x, cachedMatrix))  FALSE 
                 else TRUE
@@ -41,6 +43,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         inverse <- x$getInverse()
+        
         if(!is.null(inverse) && !x$changed()){
                 message("getting cached Inverse")
                 return(inverse)
